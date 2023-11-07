@@ -1,7 +1,4 @@
-import parser.AdditionExpressionEvaluator;
-import parser.DivisionExpressionEvaluator;
-import parser.MultiplicationExpressionEvaluator;
-import parser.SubtractionExpressionEvaluator;
+import parser.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -12,10 +9,12 @@ public class OperationChoose {
 
     public static int chooseNum = 0;
     public static void operation() {
-        System.out.println("请选择运算类型:\n\t\t1.大整数加法运算\n\t\t2.大整数减法运算\n\t\t3.大整数除法运算\n\t\t4.大整数乘法运算\n\t\t5.退出运算");
+        System.out.println("请选择运算类型:\n\t\t1.大整数加法运算\n\t\t2.大整数减法运算\n\t\t3.大整数除法运算\n\t\t4.大整数乘法运算\n\t\t5.大整数幂运算\n\t\t6.大整数平方根运算\n\t\t7.退出运算");
         Scanner scanner = new Scanner(System.in);
         chooseNum = scanner.nextInt(); // 操作数
-        System.out.print("请输入运算式或者两个运算数：");
+        if (chooseNum != 6) {
+            System.out.print("请输入运算式或者两个运算数：");
+        }
         String num1 = "";
         String num2 = "";
         String num1Symbol = "";
@@ -58,20 +57,51 @@ public class OperationChoose {
             num2Symbol = MultiplicationExpressionEvaluator.num2Symbol;
 
         } else if (chooseNum == 5) {
+            result = BigNumPow.pow();
+            sign = "^";
+            num1 = PowExpressionEvaluator.num1;
+            num2 = PowExpressionEvaluator.num2;
+            num1Symbol = PowExpressionEvaluator.num1Symbol;
+            num2Symbol = PowExpressionEvaluator.num2Symbol;
+        } else if (chooseNum == 6) {
+            System.out.println("请输入需要开平方根的数字：");
+            result = BigNumSqrt.sqrt();
+            sign = "^";
+            num1 = BigNumSqrt.num1;
+        } else if (chooseNum == 7) {
             return;
         } else {
             System.out.println("错误的操作类型！");
         }
 
-        if ("".equals(sign)) return;
+        if (num1 == null) {
+            System.out.println(result);
+            return;
+        }
 
-        if (num1Symbol.equals("-")) {
-            num1 = num1Symbol + num1;
-        }
-        if (num2Symbol.equals("-")) {
+        if (chooseNum != 5 && chooseNum != 6) {
+            if ("".equals(sign)) return;
+
+            if (num1Symbol.equals("-")) {
+                num1 = num1Symbol + num1;
+            }
+            if (num2Symbol.equals("-")) {
+                num2 = "(" + num2Symbol + num2 + ")";
+            }
+            System.out.println(num1 + " " + sign + " " + num2 + " = " + result);
+        } else if (chooseNum == 5) {
+            if ("".equals(sign)) return;
+            if (num1Symbol.equals("-")) {
+                num1 = "(" + num1Symbol + num1 + ")";
+            }
+            System.out.println(num1 + "^" + num2 + "=" + result);
+        } else {
+            if ("".equals(sign)) return;
+            num2 = "2";
+            num2Symbol = "-";
             num2 = "(" + num2Symbol + num2 + ")";
+            System.out.println(num1 + "^" + num2 + "=" + result);
         }
-        System.out.println(num1 + " " + sign + " " + num2 + " = " + result);
 
         // 保存原始的System.out
         PrintStream originalOut = System.out;

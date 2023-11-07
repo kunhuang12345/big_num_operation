@@ -164,7 +164,7 @@ public class BigNumDivision {
     }
 
     public static void main(String[] args) {
-        division();
+        System.out.println(division());
     }
 
 
