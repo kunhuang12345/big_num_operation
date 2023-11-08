@@ -206,10 +206,4 @@ public class BigNumSub {
         String lastResult = resultNum.replaceAll("-0+", "-");
         return lastResult;
     }
-
-    // 其他方法...
-    public static void main(String[] args) {
-        sub();
-    }
-
 }

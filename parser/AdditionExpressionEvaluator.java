@@ -40,36 +40,7 @@ public class AdditionExpressionEvaluator {
 
             return true; // 表达式符合加法格式
         }
-
         return false; // 表达式不符合加法格式
     }
-
-
-
-
-    public static String getNum1() {
-        return num1;
-    }
-
-    public static String getNum2() {
-        return num2;
-    }
-
-    // 以下是添加的getter方法，以获取符号信息
-    public static String getNum1Symbol() {
-        return num1Symbol;
-    }
-
-    public static String getNum2Symbol() {
-        return num2Symbol;
-    }
-//    public static void main(String[] args) {
-//        System.out.println(evaluateExpression("9845616+(-545)")); // 应该为 true
-//        System.out.println(evaluateExpression("9845616++545"));  // 应该为 false
-//        System.out.println(evaluateExpression("-9845616+545"));
-//        System.out.println(evaluateExpression("-9845616+(545)"));
-//        System.out.println(evaluateExpression("-9845616+(-545)"));
-//        System.out.println(evaluateExpression("(-9845616)+(-545)"));
-//    }
 }
 

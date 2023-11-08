@@ -1,10 +1,6 @@
 import parser.DivisionExpressionEvaluator;
 import parser.MultiplicationExpressionEvaluator;
 import parser.SignedNumericChecker;
-import parser.SubtractionExpressionEvaluator;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class BigNumMultiply {
@@ -126,9 +122,5 @@ public class BigNumMultiply {
             result = BigNumAdd.addHandle(result, num2StringArray[i-1]);
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        multiply();
     }
 }

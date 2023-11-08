@@ -162,10 +162,4 @@ public class BigNumDivision {
         if (result.equals("")) result = "0";
         return (result + "······" + quotient);
     }
-
-    public static void main(String[] args) {
-        System.out.println(division());
-    }
-
-
 }

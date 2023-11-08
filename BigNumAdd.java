@@ -150,15 +150,6 @@ public class BigNumAdd {
             Long mapNum2 = num2Map.get(position);
 
             String result = String.valueOf(mapNum1 + mapNum2 + carry);
-//            StringBuilder zero = new StringBuilder(); // 补充0
-//            if (result.length() < 18 && count > 1) {
-//                int i = 18 - result.length(); // 补充0个数
-//                while (i > 0) {
-//                    zero.append("0");
-//                    i--;
-//                }
-//                result = zero + result;
-//            }
             carry = 0;
             if (result.length() == 19) {
                 carry = 1;
@@ -174,15 +165,6 @@ public class BigNumAdd {
             while (sub > 0) {
                 sub = sub - 1;
                 String value = String.valueOf(num1Map.get(position));
-//                StringBuilder zero = new StringBuilder();
-//                if (value.length() < 18 && sub > 1) {
-//                    int i = 18 - value.length(); // 补充0个数
-//                    while (i > 0) {
-//                        zero.append("0");
-//                        i--;
-//                    }
-//                    value = zero + value;
-//                }
                 resultMap.put(position, value);
                 position = position + 1;
             }
@@ -191,15 +173,6 @@ public class BigNumAdd {
             while (sub > 0) {
                 sub = sub - 1;
                 String value = String.valueOf(num2Map.get(position));
-//                StringBuilder zero = new StringBuilder();
-//                if (value.length() < 18 && sub > 1) {
-//                    int i = 18 - value.length(); // 补充0个数
-//                    while (i > 0) {
-//                        zero.append("0");
-//                        i--;
-//                    }
-//                    value = zero + value;
-//                }
                 resultMap.put(position, value);
                 position = position + 1;
             }
@@ -223,10 +196,5 @@ public class BigNumAdd {
         }
         String resultNum = result.toString(); // 结果
         return resultNum;
-    }
-
-    // 其他方法...
-    public static void main(String[] args) {
-        System.out.println(add());
     }
 }
